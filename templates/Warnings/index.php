@@ -4,6 +4,12 @@
  * @var \App\Model\Entity\Warning[]|\Cake\Collection\CollectionInterface $warnings
  */
 ?>
+
+<?= $this->Form->create(null, ['type'=>'get']) ?>
+<?= $this->Form->control('key',['label'=>'Search', 'value'=>$this->request->getQuery('key')]) ?>
+<?= $this->Form->submit() ?>
+<?= $this->Form->end() ?>
+
 <div class="warnings index content">
     <?= $this->Html->link(__('New Warning'), ['action' => 'add'], ['class' => 'button float-right']) ?>
     <h3><?= __('Warnings') ?></h3>

@@ -20,6 +20,21 @@ class WarningsController extends AppController
     {
         $warnings = $this->paginate($this->Warnings);
 
+        // //search name
+        $key = $this->request->getQuery('key');
+
+        $conditions = [];
+        if ($key){
+            $query = $this->Warnings->find('all')->where(['name like'=>'%'.$key.'%']);
+            $warnings = $this->paginate($query);
+        } else {
+            $query = $this->Warnings;
+            $warnings = $this->paginate($query);
+        }
+        $this->paginate = [
+            'conditions' => $conditions
+        ];
+        
         $this->set(compact('warnings'));
     }
 
