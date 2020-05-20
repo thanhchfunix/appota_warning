@@ -131,13 +131,7 @@ return [
         [
             'role' => 'user',
             'controller' => 'Warnings',
-            'action' => ['index', 'view', 'add', 'delete']
-        ],
-        [
-            'role' => 'user',
-            'controller' => 'Warnings',
-            'action' => ['edit'],
-            'allowed' => new \CakeDC\Auth\Rbac\Rules\Owner()
+            'action' => ['index', 'view', 'add', 'delete', 'edit']
         ],
     ]
 ]; 
