@@ -30,6 +30,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
 
+    <!-- date time -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
     <?= $this->Html->css('milligram.min.css') ?>
     <?= $this->Html->css('cake.css') ?>
 
@@ -57,3 +63,4 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </footer>
 </body>
 </html>
+

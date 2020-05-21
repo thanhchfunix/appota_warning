@@ -19,22 +19,31 @@ class WarningsController extends AppController
     public function index()
     {
         $warnings = $this->paginate($this->Warnings);
+        $start_date = $this->request->getQuery('start_date');
+        $end_date = $this->request->getQuery('end_date');
 
         // //search name
         $key = $this->request->getQuery('key');
 
         $conditions = [];
         if ($key){
-            $query = $this->Warnings->find('all')->where(['name like'=>'%'.$key.'%']);
+            $query = $this->Warnings->find('all')->where(['Or'=>['name like'=>'%'.$key.'%', 'description like'=>'%'.$key.'%']]);
             $warnings = $this->paginate($query);
         } else {
             $query = $this->Warnings;
             $warnings = $this->paginate($query);
         }
+
+        if ($start_date && $end_date) {
+            $conditions[] = [
+                'DATE(warnings.created) >=' => $start_date,
+                'DATE(warnings.created) <=' => $end_date,
+            ];
+        }
         $this->paginate = [
             'conditions' => $conditions
         ];
-        
+
         $this->set(compact('warnings'));
     }
 

@@ -5,8 +5,16 @@
  */
 ?>
 
+<!-- filter name -->
 <?= $this->Form->create(null, ['type'=>'get']) ?>
 <?= $this->Form->control('key',['label'=>'Search', 'value'=>$this->request->getQuery('key')]) ?>
+<?= $this->Form->submit() ?>
+<?= $this->Form->end() ?>
+
+<!-- filter date - time -->
+<?= $this->Form->create(null, ['type'=>'get']) ?>
+<?= $this->Form->control('start_date', ['class'=>'datepicker','value'=>$this->request->getQuery('start_date')]) ?>
+<?= $this->Form->control('end_date', ['class'=>'datepicker','value'=>$this->request->getQuery('end_date')]) ?>
 <?= $this->Form->submit() ?>
 <?= $this->Form->end() ?>
 
